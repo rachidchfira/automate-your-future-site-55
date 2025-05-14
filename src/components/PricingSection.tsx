@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check } from 'lucide-react';
+import { useActions } from '@/hooks/useActions';
 
 const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(true);
+  const { handleFreeTrial, handleContactSales } = useActions();
   
   const pricingPlans = [
     {
@@ -21,7 +23,8 @@ const PricingSection = () => {
         'Up to 1,000 automations/month',
         'Single user access'
       ],
-      cta: 'Start Free Trial'
+      cta: 'Start Free Trial',
+      action: handleFreeTrial
     },
     {
       id: 'growth',
@@ -39,6 +42,7 @@ const PricingSection = () => {
         'Workflow templates library'
       ],
       cta: 'Start Free Trial',
+      action: handleFreeTrial,
       popular: true
     },
     {
@@ -58,7 +62,8 @@ const PricingSection = () => {
         'On-premise deployment options',
         'Custom integrations & development'
       ],
-      cta: 'Contact Sales'
+      cta: 'Contact Sales',
+      action: handleContactSales
     }
   ];
 
@@ -128,6 +133,7 @@ const PricingSection = () => {
                 <Button 
                   className={plan.popular ? "w-full bg-nexus-600 hover:bg-nexus-700" : "w-full"} 
                   variant={plan.popular ? "default" : "outline"}
+                  onClick={plan.action}
                 >
                   {plan.cta}
                 </Button>
@@ -138,7 +144,11 @@ const PricingSection = () => {
         
         <div className="text-center mt-16">
           <p className="text-gray-600 mb-4">Have questions about our pricing or need a custom solution?</p>
-          <Button variant="outline" className="border-nexus-600 text-nexus-600 hover:bg-nexus-50">
+          <Button 
+            variant="outline" 
+            className="border-nexus-600 text-nexus-600 hover:bg-nexus-50"
+            onClick={handleContactSales}
+          >
             Contact Sales Team
           </Button>
         </div>

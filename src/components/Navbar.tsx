@@ -2,12 +2,22 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import { useActions } from '@/hooks/useActions';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { handleGetStarted } = useActions();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      setIsMenuOpen(false); // Close mobile menu if open
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -21,11 +31,36 @@ const Navbar = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-gray-700 hover:text-nexus-600 transition-colors">Services</a>
-            <a href="#how-it-works" className="text-gray-700 hover:text-nexus-600 transition-colors">How It Works</a>
-            <a href="#case-studies" className="text-gray-700 hover:text-nexus-600 transition-colors">Case Studies</a>
-            <a href="#pricing" className="text-gray-700 hover:text-nexus-600 transition-colors">Pricing</a>
-            <Button className="bg-nexus-600 hover:bg-nexus-700 text-white">Get Started</Button>
+            <button 
+              onClick={() => scrollToSection('services')} 
+              className="text-gray-700 hover:text-nexus-600 transition-colors"
+            >
+              Services
+            </button>
+            <button 
+              onClick={() => scrollToSection('how-it-works')} 
+              className="text-gray-700 hover:text-nexus-600 transition-colors"
+            >
+              How It Works
+            </button>
+            <button 
+              onClick={() => scrollToSection('case-studies')} 
+              className="text-gray-700 hover:text-nexus-600 transition-colors"
+            >
+              Case Studies
+            </button>
+            <button 
+              onClick={() => scrollToSection('pricing')} 
+              className="text-gray-700 hover:text-nexus-600 transition-colors"
+            >
+              Pricing
+            </button>
+            <Button 
+              className="bg-nexus-600 hover:bg-nexus-700 text-white" 
+              onClick={handleGetStarted}
+            >
+              Get Started
+            </Button>
           </nav>
           
           <button className="md:hidden" onClick={toggleMenu}>
@@ -37,12 +72,37 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <nav className="flex flex-col py-4">
-            <a href="#services" className="px-8 py-3 text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>Services</a>
-            <a href="#how-it-works" className="px-8 py-3 text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>How It Works</a>
-            <a href="#case-studies" className="px-8 py-3 text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>Case Studies</a>
-            <a href="#pricing" className="px-8 py-3 text-gray-700 hover:bg-gray-100" onClick={toggleMenu}>Pricing</a>
+            <button 
+              className="px-8 py-3 text-left text-gray-700 hover:bg-gray-100"
+              onClick={() => scrollToSection('services')}
+            >
+              Services
+            </button>
+            <button 
+              className="px-8 py-3 text-left text-gray-700 hover:bg-gray-100"
+              onClick={() => scrollToSection('how-it-works')}
+            >
+              How It Works
+            </button>
+            <button 
+              className="px-8 py-3 text-left text-gray-700 hover:bg-gray-100"
+              onClick={() => scrollToSection('case-studies')}
+            >
+              Case Studies
+            </button>
+            <button 
+              className="px-8 py-3 text-left text-gray-700 hover:bg-gray-100"
+              onClick={() => scrollToSection('pricing')}
+            >
+              Pricing
+            </button>
             <div className="px-8 py-3">
-              <Button className="w-full bg-nexus-600 hover:bg-nexus-700 text-white">Get Started</Button>
+              <Button 
+                className="w-full bg-nexus-600 hover:bg-nexus-700 text-white"
+                onClick={handleGetStarted}
+              >
+                Get Started
+              </Button>
             </div>
           </nav>
         </div>
