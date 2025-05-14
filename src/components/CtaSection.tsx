@@ -1,10 +1,7 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-
 const CtaSection = () => {
-  return (
-    <section className="relative py-24">
+  return <section className="relative py-24">
       <div className="absolute inset-0 gradient-bg opacity-90"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl mx-auto text-center text-white">
@@ -24,8 +21,6 @@ const CtaSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CtaSection;
