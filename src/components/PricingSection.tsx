@@ -1,10 +1,8 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Check, CircleDollarSign, Plus, Users, Layers } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useToast } from '@/hooks/use-toast';
 
 // List of departments available for selection
@@ -54,16 +52,16 @@ const PricingSection = () => {
     {
       id: 'basic',
       name: 'Basic',
-      description: 'Get started with automation for one department',
+      description: 'For small teams getting started',
       monthlyPrice: 399,
       annualPrice: 359,
       features: [
-        'Access to automation for 1 department of choice',
-        '3 AI automation workflows',
-        'Basic analytics dashboard',
+        '1 department',
+        '3 AI workflows',
+        'Basic analytics',
         'Email support',
-        'Up to 1,500 automations/month',
-        'Single user access'
+        '1,500 automations/month',
+        'Single user'
       ],
       cta: 'Start Free Trial',
       action: () => handleSelectPlan('basic')
@@ -71,18 +69,17 @@ const PricingSection = () => {
     {
       id: 'professional',
       name: 'Professional',
-      description: 'Perfect for growing teams with expanding needs',
+      description: 'For growing teams',
       monthlyPrice: 899,
       annualPrice: 799,
       features: [
-        'Access to automation for 3 departments of choice',
-        '12 AI automation workflows',
-        'Advanced analytics & reporting',
-        'Priority email & chat support',
-        'Up to 7,500 automations/month',
-        'Team access (up to 8 users)',
-        'Custom integrations',
-        'Workflow templates library'
+        '3 departments',
+        '12 AI workflows',
+        'Advanced analytics',
+        'Priority support',
+        '7,500 automations/month',
+        'Up to 8 users',
+        'Custom integrations'
       ],
       cta: 'Start Free Trial',
       action: () => handleSelectPlan('professional'),
@@ -91,19 +88,17 @@ const PricingSection = () => {
     {
       id: 'business',
       name: 'Business',
-      description: 'Comprehensive solution for established businesses',
+      description: 'For established businesses',
       monthlyPrice: 1799,
       annualPrice: 1599,
       features: [
-        'Access to automation for all departments',
-        '25 AI automation workflows',
-        'Enterprise analytics & reporting',
-        'Priority support with dedicated success manager',
-        'Up to 20,000 automations/month',
-        'Team access (up to 20 users)',
-        'Custom AI model training',
-        'SLA guarantees',
-        'API access'
+        'All departments',
+        '25 AI workflows',
+        'Enterprise analytics',
+        'Dedicated manager',
+        '20,000 automations/month',
+        'Up to 20 users',
+        'Custom AI training'
       ],
       cta: 'Start Free Trial',
       action: () => handleSelectPlan('business')
@@ -111,20 +106,18 @@ const PricingSection = () => {
     {
       id: 'enterprise',
       name: 'Enterprise',
-      description: 'Custom solution for large organizations',
+      description: 'Custom enterprise solution',
       monthlyPrice: null,
       annualPrice: null,
       priceDisplay: 'Custom',
       features: [
-        'Unlimited workflows across all departments',
-        'Custom AI model development',
-        'White-labeled solutions',
+        'Unlimited workflows',
+        'Custom AI development',
+        'White-labeled solution',
         'Unlimited automations',
         'Unlimited users',
-        'On-premise deployment options',
-        'Custom integrations & development',
-        '24/7 premium support',
-        'Dedicated account team'
+        'On-premise options',
+        '24/7 premium support'
       ],
       cta: 'Contact Sales',
       action: handleContactSales
@@ -159,25 +152,23 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-24 bg-gray-50">
+    <section id="pricing" className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-gray-600 text-lg mb-8">
-            Choose the plan that's right for your business and scale as you grow
-          </p>
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Simple, Transparent Pricing</h2>
+          <p className="text-gray-600 text-lg">Choose the plan that's right for your business</p>
           
-          <div className="flex items-center justify-center mb-8">
-            <div className="bg-white p-1 rounded-full border border-gray-200 flex">
+          <div className="flex items-center justify-center mt-8 mb-4">
+            <div className="bg-white p-1 rounded-full border border-gray-200 flex shadow-sm">
               <button
                 onClick={() => setIsAnnual(false)}
-                className={`px-4 py-2 rounded-full ${!isAnnual ? 'bg-nexus-600 text-white' : 'text-gray-600'}`}
+                className={`px-4 py-2 rounded-full transition-colors ${!isAnnual ? 'bg-nexus-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setIsAnnual(true)}
-                className={`px-4 py-2 rounded-full ${isAnnual ? 'bg-nexus-600 text-white' : 'text-gray-600'}`}
+                className={`px-4 py-2 rounded-full transition-colors ${isAnnual ? 'bg-nexus-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
               >
                 Annual (Save 10%)
               </button>
@@ -185,47 +176,48 @@ const PricingSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pricingPlans.map((plan) => (
             <Card 
               key={plan.id} 
-              className={`relative ${plan.popular ? 'border-nexus-500 shadow-xl' : 'border-gray-200'}`}
+              className={`relative transition-all hover:-translate-y-1 hover:shadow-lg ${plan.popular ? 'border-nexus-500 shadow-lg' : 'border-gray-200'}`}
             >
               {plan.popular && (
-                <div className="absolute top-0 right-0 -mt-4 mr-4">
-                  <div className="bg-nexus-600 text-white px-3 py-1 rounded-full text-xs font-medium">
+                <div className="absolute top-0 right-0 left-0 -mt-4 flex justify-center">
+                  <div className="bg-nexus-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md">
                     Most Popular
                   </div>
                 </div>
               )}
               
-              <CardHeader>
-                <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                <CardDescription>{plan.description}</CardDescription>
+              <CardHeader className={`pb-4 ${plan.popular ? 'pt-8' : 'pt-6'}`}>
+                <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
+                <CardDescription className="text-sm">{plan.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="mb-6">
+              
+              <CardContent className="pb-4">
+                <div className="mb-4 flex items-end">
                   <span className="text-4xl font-bold">
                     {plan.priceDisplay ? plan.priceDisplay : 
                     `$${isAnnual ? plan.annualPrice : plan.monthlyPrice}`}
                   </span>
-                  {!plan.priceDisplay && <span className="text-gray-600 ml-2">/month</span>}
+                  {!plan.priceDisplay && <span className="text-gray-600 ml-1">/mo</span>}
                 </div>
                 
                 {(plan.id === 'basic' || plan.id === 'professional') && (
-                  <div className="mb-4 p-3 bg-gray-50 rounded-md">
-                    <p className="text-sm font-medium mb-2">
-                      {plan.id === 'basic' ? 'Select 1 Department:' : 'Select Up to 3 Departments:'}
+                  <div className="mb-4 p-3 bg-nexus-50 rounded-md">
+                    <p className="text-sm font-medium mb-2 text-nexus-800">
+                      {plan.id === 'basic' ? 'Select your department:' : 'Select up to 3:'}
                     </p>
-                    <div className="grid grid-cols-2 gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {departments.map((dept) => (
                         <div 
                           key={dept} 
                           onClick={() => handleDepartmentToggle(dept)} 
-                          className={`px-2 py-1 text-xs rounded cursor-pointer transition-colors ${
+                          className={`px-3 py-1 text-xs rounded-full cursor-pointer transition-colors ${
                             selectedDepartments.includes(dept) 
-                              ? 'bg-nexus-600 text-white' 
-                              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                              ? 'bg-nexus-600 text-white shadow-sm' 
+                              : 'bg-white border border-gray-200 text-gray-700 hover:border-nexus-300'
                           }`}
                         >
                           {dept}
@@ -235,18 +227,19 @@ const PricingSection = () => {
                   </div>
                 )}
                 
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-2 mb-6">
                   {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <Check size={20} className="text-nexus-600 mt-1 mr-2 flex-shrink-0" />
+                    <li key={index} className="flex items-center gap-2">
+                      <Check size={16} className="text-nexus-600 flex-shrink-0" />
                       <span className="text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
               </CardContent>
+              
               <CardFooter>
                 <Button 
-                  className={plan.popular ? "w-full bg-nexus-600 hover:bg-nexus-700" : "w-full"} 
+                  className={`w-full ${plan.popular ? "bg-nexus-600 hover:bg-nexus-700 shadow-md" : ""}`} 
                   variant={plan.popular ? "default" : "outline"}
                   onClick={plan.action}
                 >
@@ -257,11 +250,12 @@ const PricingSection = () => {
           ))}
         </div>
         
-        <div className="mt-16">
-          <div className="flex justify-between items-center mb-8">
-            <h3 className="text-2xl font-bold">Available Add-ons</h3>
+        <div className="mt-14">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-xl font-bold">Available Add-ons</h3>
             <Button 
               variant="ghost" 
+              size="sm"
               className="text-nexus-600"
               onClick={() => setShowAddOns(!showAddOns)}
             >
@@ -270,26 +264,26 @@ const PricingSection = () => {
           </div>
           
           {showAddOns && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {addOns.map((addOn, index) => (
-                <Card key={index} className="border-gray-200">
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center gap-2">
-                      <div className="p-2 bg-nexus-50 rounded-md text-nexus-600">
-                        {addOn.icon}
-                      </div>
-                      <CardTitle className="text-lg">{addOn.name}</CardTitle>
+                <Card key={index} className="border-gray-200 transition-all hover:-translate-y-1 hover:shadow-md">
+                  <CardHeader className="pb-2 flex flex-row items-center gap-2">
+                    <div className="p-1.5 bg-nexus-50 rounded-md text-nexus-600">
+                      {addOn.icon}
+                    </div>
+                    <div>
+                      <CardTitle className="text-base">{addOn.name}</CardTitle>
                     </div>
                   </CardHeader>
-                  <CardContent className="pb-2">
-                    <p className="text-sm text-gray-600 mb-2">{addOn.description}</p>
-                    <p className="font-bold">${addOn.price}<span className="text-sm text-gray-600 font-normal">/month</span></p>
+                  <CardContent className="pb-2 pt-0">
+                    <p className="text-xs text-gray-500 mb-2">{addOn.description}</p>
+                    <p className="font-semibold">${addOn.price}<span className="text-xs text-gray-500 font-normal">/mo</span></p>
                   </CardContent>
                   <CardFooter>
                     <Button 
                       variant="outline" 
                       size="sm" 
-                      className="w-full border-nexus-600 text-nexus-600 hover:bg-nexus-50"
+                      className="w-full text-nexus-600 border-nexus-300 hover:bg-nexus-50"
                       onClick={() => handleAddOnSelect(addOn.name)}
                     >
                       Add to Plan
@@ -301,11 +295,11 @@ const PricingSection = () => {
           )}
         </div>
         
-        <div className="text-center mt-16">
-          <p className="text-gray-600 mb-4">Have questions about our pricing or need a custom solution?</p>
+        <div className="text-center mt-12 pt-6 border-t border-gray-100">
+          <p className="text-gray-600 mb-3">Have questions about our pricing?</p>
           <Button 
             variant="outline" 
-            className="border-nexus-600 text-nexus-600 hover:bg-nexus-50"
+            className="border-nexus-300 text-nexus-600 hover:bg-nexus-50"
             onClick={handleContactSales}
           >
             Contact Sales Team
