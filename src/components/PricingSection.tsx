@@ -2,68 +2,159 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check } from 'lucide-react';
+import { Check, CircleDollarSign, Plus, Users, Layers } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { useToast } from '@/hooks/use-toast';
+
+// List of departments available for selection
+const departments = [
+  "Sales", 
+  "Customer Success", 
+  "HR", 
+  "Operations", 
+  "Finance", 
+  "Marketing"
+];
 
 const PricingSection = () => {
   const [isAnnual, setIsAnnual] = useState(true);
   const { handleFreeTrial, handleContactSales } = useActions();
+  const { toast } = useToast();
+  const [selectedDepartments, setSelectedDepartments] = useState<string[]>(["Sales"]);
+  const [showAddOns, setShowAddOns] = useState(false);
+  
+  const handleDepartmentToggle = (department: string) => {
+    // For Basic tier, only allow one department
+    if (selectedDepartments.includes(department)) {
+      if (selectedDepartments.length > 1) {
+        setSelectedDepartments(prev => prev.filter(dep => dep !== department));
+      }
+    } else {
+      setSelectedDepartments(prev => [...prev, department]);
+    }
+  };
+  
+  const handleSelectPlan = (plan: string) => {
+    if (plan === 'enterprise') {
+      handleContactSales();
+    } else {
+      handleFreeTrial();
+    }
+  };
+  
+  const handleAddOnSelect = (addOn: string) => {
+    toast({
+      title: "Add-on Selected",
+      description: `${addOn} has been added to your plan.`,
+    });
+  };
   
   const pricingPlans = [
     {
-      id: 'starter',
-      name: 'Starter',
-      description: 'Perfect for small businesses starting with automation',
-      monthlyPrice: 499,
-      annualPrice: 449,
+      id: 'basic',
+      name: 'Basic',
+      description: 'Get started with automation for one department',
+      monthlyPrice: 399,
+      annualPrice: 359,
       features: [
-        '2 AI automation workflows',
+        'Access to automation for 1 department of choice',
+        '3 AI automation workflows',
         'Basic analytics dashboard',
         'Email support',
-        'Up to 1,000 automations/month',
+        'Up to 1,500 automations/month',
         'Single user access'
       ],
       cta: 'Start Free Trial',
-      action: handleFreeTrial
+      action: () => handleSelectPlan('basic')
     },
     {
-      id: 'growth',
-      name: 'Growth',
-      description: 'Ideal for growing businesses with expanding needs',
-      monthlyPrice: 999,
-      annualPrice: 899,
+      id: 'professional',
+      name: 'Professional',
+      description: 'Perfect for growing teams with expanding needs',
+      monthlyPrice: 899,
+      annualPrice: 799,
       features: [
-        '10 AI automation workflows',
+        'Access to automation for 3 departments of choice',
+        '12 AI automation workflows',
         'Advanced analytics & reporting',
         'Priority email & chat support',
-        'Up to 5,000 automations/month',
-        'Team access (up to 5 users)',
+        'Up to 7,500 automations/month',
+        'Team access (up to 8 users)',
         'Custom integrations',
         'Workflow templates library'
       ],
       cta: 'Start Free Trial',
-      action: handleFreeTrial,
+      action: () => handleSelectPlan('professional'),
       popular: true
+    },
+    {
+      id: 'business',
+      name: 'Business',
+      description: 'Comprehensive solution for established businesses',
+      monthlyPrice: 1799,
+      annualPrice: 1599,
+      features: [
+        'Access to automation for all departments',
+        '25 AI automation workflows',
+        'Enterprise analytics & reporting',
+        'Priority support with dedicated success manager',
+        'Up to 20,000 automations/month',
+        'Team access (up to 20 users)',
+        'Custom AI model training',
+        'SLA guarantees',
+        'API access'
+      ],
+      cta: 'Start Free Trial',
+      action: () => handleSelectPlan('business')
     },
     {
       id: 'enterprise',
       name: 'Enterprise',
-      description: 'Complete solution for larger organizations',
-      monthlyPrice: 2499,
-      annualPrice: 2199,
+      description: 'Custom solution for large organizations',
+      monthlyPrice: null,
+      annualPrice: null,
+      priceDisplay: 'Custom',
       features: [
-        'Unlimited AI automation workflows',
-        'Enterprise analytics & reporting',
-        'Dedicated account manager',
+        'Unlimited workflows across all departments',
+        'Custom AI model development',
+        'White-labeled solutions',
         'Unlimited automations',
-        'Unlimited team access',
-        'Custom AI model training',
-        'SLA guarantees',
+        'Unlimited users',
         'On-premise deployment options',
-        'Custom integrations & development'
+        'Custom integrations & development',
+        '24/7 premium support',
+        'Dedicated account team'
       ],
       cta: 'Contact Sales',
       action: handleContactSales
+    }
+  ];
+  
+  const addOns = [
+    {
+      name: 'Additional Department',
+      price: 250,
+      description: 'Add access to one more department',
+      icon: <Layers size={20} />
+    },
+    {
+      name: 'Additional 5,000 Automations',
+      price: 150,
+      description: 'Extend your monthly automation limit',
+      icon: <CircleDollarSign size={20} />
+    },
+    {
+      name: 'Additional 5 Users',
+      price: 100,
+      description: 'Add more team members to your plan',
+      icon: <Users size={20} />
+    },
+    {
+      name: 'Custom AI Training Session',
+      price: 1500,
+      description: 'One-time training session for your team',
+      icon: <Plus size={20} />
     }
   ];
 
@@ -94,7 +185,7 @@ const PricingSection = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingPlans.map((plan) => (
             <Card 
               key={plan.id} 
@@ -115,16 +206,40 @@ const PricingSection = () => {
               <CardContent>
                 <div className="mb-6">
                   <span className="text-4xl font-bold">
-                    ${isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                    {plan.priceDisplay ? plan.priceDisplay : 
+                    `$${isAnnual ? plan.annualPrice : plan.monthlyPrice}`}
                   </span>
-                  <span className="text-gray-600 ml-2">/month</span>
+                  {!plan.priceDisplay && <span className="text-gray-600 ml-2">/month</span>}
                 </div>
+                
+                {(plan.id === 'basic' || plan.id === 'professional') && (
+                  <div className="mb-4 p-3 bg-gray-50 rounded-md">
+                    <p className="text-sm font-medium mb-2">
+                      {plan.id === 'basic' ? 'Select 1 Department:' : 'Select Up to 3 Departments:'}
+                    </p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {departments.map((dept) => (
+                        <div 
+                          key={dept} 
+                          onClick={() => handleDepartmentToggle(dept)} 
+                          className={`px-2 py-1 text-xs rounded cursor-pointer transition-colors ${
+                            selectedDepartments.includes(dept) 
+                              ? 'bg-nexus-600 text-white' 
+                              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                          }`}
+                        >
+                          {dept}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
                 
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, index) => (
                     <li key={index} className="flex items-start">
                       <Check size={20} className="text-nexus-600 mt-1 mr-2 flex-shrink-0" />
-                      <span>{feature}</span>
+                      <span className="text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -140,6 +255,50 @@ const PricingSection = () => {
               </CardFooter>
             </Card>
           ))}
+        </div>
+        
+        <div className="mt-16">
+          <div className="flex justify-between items-center mb-8">
+            <h3 className="text-2xl font-bold">Available Add-ons</h3>
+            <Button 
+              variant="ghost" 
+              className="text-nexus-600"
+              onClick={() => setShowAddOns(!showAddOns)}
+            >
+              {showAddOns ? 'Hide Add-ons' : 'Show Add-ons'}
+            </Button>
+          </div>
+          
+          {showAddOns && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {addOns.map((addOn, index) => (
+                <Card key={index} className="border-gray-200">
+                  <CardHeader className="pb-2">
+                    <div className="flex items-center gap-2">
+                      <div className="p-2 bg-nexus-50 rounded-md text-nexus-600">
+                        {addOn.icon}
+                      </div>
+                      <CardTitle className="text-lg">{addOn.name}</CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pb-2">
+                    <p className="text-sm text-gray-600 mb-2">{addOn.description}</p>
+                    <p className="font-bold">${addOn.price}<span className="text-sm text-gray-600 font-normal">/month</span></p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="w-full border-nexus-600 text-nexus-600 hover:bg-nexus-50"
+                      onClick={() => handleAddOnSelect(addOn.name)}
+                    >
+                      Add to Plan
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          )}
         </div>
         
         <div className="text-center mt-16">

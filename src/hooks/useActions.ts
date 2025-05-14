@@ -1,25 +1,40 @@
 
-import { toast } from "sonner";
+import { toast } from "@/components/ui/use-toast";
 
 export const useActions = () => {
   const handleGetStarted = () => {
-    toast.success("Thank you for your interest! We'll contact you shortly.");
+    toast({
+      title: "Thank you for your interest!",
+      description: "We'll contact you shortly with next steps.",
+    });
   };
 
   const handleScheduleDemo = () => {
-    toast.success("Demo request received! Our team will reach out to schedule.");
+    toast({
+      title: "Demo Request Received",
+      description: "Our team will reach out to schedule your personalized demo.",
+    });
   };
 
   const handleContactUs = () => {
-    toast.success("Thank you for contacting us! We'll respond shortly.");
+    toast({
+      title: "Message Received",
+      description: "Thank you for contacting us! We'll respond shortly.",
+    });
   };
 
   const handleFreeTrial = () => {
-    toast.success("Your free trial has been activated! Check your email for details.");
+    toast({
+      title: "Free Trial Activated",
+      description: "Check your email for details on how to get started.",
+    });
   };
 
   const handleContactSales = () => {
-    toast.success("Our sales team has been notified and will contact you soon.");
+    toast({
+      title: "Sales Request Submitted",
+      description: "Our sales team will contact you soon to discuss your needs.",
+    });
   };
 
   return {
