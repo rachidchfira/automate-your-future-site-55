@@ -3,10 +3,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
+import logoSrc from '@/assets/logo.png'; // Import the logo
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { handleGetStarted } = useActions();
+  const { handleGetStarted, handleContactUs } = useActions(); // Added handleContactUs
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -25,8 +26,8 @@ const Navbar = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-nexus-800">
-              Nexus<span className="text-nexus-600">AI</span>
+            <a href="/" aria-label="NexusAI Home">
+              <img src={logoSrc} alt="NexusAI Logo" className="h-10 w-auto" /> {/* Adjusted height to h-10 */}
             </a>
           </div>
           
@@ -54,6 +55,13 @@ const Navbar = () => {
               className="text-gray-700 hover:text-nexus-600 transition-colors"
             >
               Pricing
+            </button>
+            {/* Added Contact Us button for desktop */}
+            <button 
+              onClick={handleContactUs}
+              className="text-gray-700 hover:text-nexus-600 transition-colors"
+            >
+              Contact Us
             </button>
             <Button 
               className="bg-nexus-600 hover:bg-nexus-700 text-white" 
@@ -95,6 +103,13 @@ const Navbar = () => {
               onClick={() => scrollToSection('pricing')}
             >
               Pricing
+            </button>
+            {/* Added Contact Us button for mobile */}
+            <button 
+              className="px-8 py-3 text-left text-gray-700 hover:bg-gray-100"
+              onClick={handleContactUs}
+            >
+              Contact Us
             </button>
             <div className="px-8 py-3">
               <Button 

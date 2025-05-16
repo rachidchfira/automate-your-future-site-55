@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/main
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Mail, Phone } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
 
 const CtaSection = () => {
@@ -20,27 +16,29 @@ const CtaSection = () => {
           <p className="text-xl mb-8 opacity-90">
             Join hundreds of businesses that have already enhanced their productivity and growth with our intelligent automation solutions.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-6 max-w-xl mx-auto">
             <Button 
-              size="lg" 
-              className="bg-white text-nexus-600 hover:bg-gray-100"
+              className="bg-white text-nexus-600 hover:bg-gray-100 rounded-md px-8 py-3 text-lg font-medium"
               onClick={handleScheduleDemo}
             >
-              Schedule a Demo <ArrowRight size={18} className="ml-2" />
+              <span className="flex items-center">Schedule a Demo <ArrowRight size={16} className="ml-2" /></span>
             </Button>
             <Button 
-              size="lg" 
-              variant="outline" 
-<<<<<<< HEAD
-              className="border-white text-nexus-600 bg-white hover:bg-gray-100 hover:text-nexus-700"
-=======
-              className="border-white text-white hover:bg-white/10"
->>>>>>> origin/main
+              className="bg-nexus-600/10 border border-white text-white hover:bg-nexus-600/20 rounded-md px-8 py-3 text-lg font-medium"
               onClick={handleContactUs}
             >
-              Contact Us
+              <span className="flex items-center">Contact Us <Mail size={16} className="ml-2" /></span>
             </Button>
           </div>
+          
+          {/* Removed phone number display
+          <div className="mt-8 pt-6 border-t border-white/30 flex justify-center">
+            <div className="flex items-center gap-2 text-white/90 hover:text-white transition-colors">
+              <Phone size={16} />
+              <span className="text-lg">Call us: (888) 123-4567</span>
+            </div>
+          </div>
+          */}
         </div>
       </div>
     </section>

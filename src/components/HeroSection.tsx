@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
+import { SplineSceneBasic } from '@/components/ui/spline-basic';
 
 const HeroSection = () => {
   const { handleGetStarted, handleScheduleDemo } = useActions();
@@ -42,16 +43,10 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/2 relative">
-            <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-nexus-600 to-blue-500 rounded-lg blur-lg opacity-75 animate-pulse-slow"></div>
-              <div className="relative bg-white rounded-lg shadow-xl p-6 border border-gray-100">
-                <img 
-                  src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
-                  alt="AI Automation Dashboard" 
-                  className="rounded-md w-full shadow-lg animate-float"
-                />
-              </div>
+          <div className="lg:w-1/2 relative flex justify-center items-center h-[500px] lg:h-auto">
+            {/* Adjusted container for Spline Scene */}
+            <div className="w-full max-w-2xl h-full"> 
+              <SplineSceneBasic />
             </div>
           </div>
         </div>

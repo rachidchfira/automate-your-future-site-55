@@ -1,8 +1,11 @@
-
-import { useState } from 'react';
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs';
 import { Check } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 interface ServiceItem {
   id: string;
@@ -35,7 +38,7 @@ const departments: DepartmentData[] = [
     title: 'Customer Success',
     description: 'Enhance customer satisfaction and retention with proactive support and personalized experiences.',
     services: [
-      { id: 'cs-1', title: 'Automate onboarding workflows for new customers' },
+      { id: 'cs-1', title: 'Automated onboarding workflows for new customers' },
       { id: 'cs-2', title: 'Send proactive notifications for upselling or renewals' },
       { id: 'cs-3', title: 'Monitor customer feedback and suggest improvements' },
       { id: 'cs-4', title: 'Provide tailored recommendations based on user behavior' },
@@ -94,79 +97,94 @@ const departments: DepartmentData[] = [
       { id: 'mkt-5', title: 'Provide detailed performance reports with suggestions for improvement' },
       { id: 'mkt-6', title: 'Conduct outbound calls for surveys or campaign promotions' },
     ]
+  },
+  {
+    id: 'executive',
+    title: 'Executive Support',
+    description: 'Empower executive decision-making with intelligent scheduling, communication management, and data analysis.',
+    services: [
+      { id: 'exec-1', title: 'Create daily schedules with tasks, deadlines, and meeting reminders' },
+      { id: 'exec-2', title: 'Manage inboxes and ensure critical messages are prioritized' },
+      { id: 'exec-3', title: 'Coordinate meeting schedules and handle follow-ups' },
+      { id: 'exec-4', title: 'Automate report generation for key business performance metrics' },
+      { id: 'exec-5', title: 'Retrieve and organize data for executive decision-making' },
+      { id: 'exec-6', title: 'Manage high-priority calls and handle stakeholder communication' },
+    ]
+  },
+  {
+    id: 'product',
+    title: 'Product Development',
+    description: 'Accelerate product innovation with automated research, feedback analysis, and development workflows.',
+    services: [
+      { id: 'prod-1', title: 'Research customer needs and market trends to inspire new features' },
+      { id: 'prod-2', title: 'Gather and analyze user feedback to refine existing products' },
+      { id: 'prod-3', title: 'Track development milestones and send regular progress updates' },
+      { id: 'prod-4', title: 'Automate testing workflows to ensure product quality' },
+      { id: 'prod-5', title: 'Prepare go-to-market strategies and documentation for new launches' },
+      { id: 'prod-6', title: 'Conduct outbound calls to gather feedback on prototypes' },
+    ]
+  },
+  {
+    id: 'it',
+    title: 'IT and Support',
+    description: 'Enhance technical operations with automated monitoring, incident resolution, and system maintenance.',
+    services: [
+      { id: 'it-1', title: 'Monitor and maintain system performance and uptime' },
+      { id: 'it-2', title: 'Automate incident tracking and resolution workflows' },
+      { id: 'it-3', title: 'Provide real-time assistance for technical issues or inquiries' },
+      { id: 'it-4', title: 'Schedule security updates and data backups' },
+      { id: 'it-5', title: 'Streamline integration processes for new tools and software' },
+      { id: 'it-6', title: 'Manage inbound technical support calls and coordinate follow-ups' },
+    ]
   }
 ];
 
 const DepartmentalServicesSection = () => {
-  const [activeTab, setActiveTab] = useState(departments[0].id);
-
   return (
     <section id="departmental-services" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Transform Every Department</h2>
-          <p className="text-gray-600 text-lg">
+          <p className="text-gray-600 text-lg mb-6">
             Our AI agents can transform every department in your organization with tailored automation solutions
           </p>
         </div>
 
-        <Tabs 
-          defaultValue={departments[0].id} 
-          onValueChange={setActiveTab}
-          className="w-full"
-        >
-          <div className="flex justify-center mb-12">
-            <TabsList className="h-auto flex-wrap gap-2 bg-transparent p-0">
-              {departments.map((dept) => (
-                <TabsTrigger 
-                  key={dept.id}
-                  value={dept.id}
-                  className={cn(
-                    "rounded-full px-6 py-2 text-sm transition-all",
-                    activeTab === dept.id 
-                      ? "bg-nexus-600 text-white" 
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  )}
-                >
-                  {dept.title}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-          </div>
-
-          {departments.map((department) => (
-            <TabsContent 
-              key={department.id}
-              value={department.id}
-              className="mt-0 animate-fade-in"
-            >
-              <div className="bg-gray-50 rounded-xl p-8 shadow-sm">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                  <div className="lg:col-span-1">
-                    <h3 className="text-2xl font-bold mb-4 text-nexus-800">{department.title}</h3>
-                    <p className="text-gray-600 mb-6">{department.description}</p>
-                  </div>
-                  
-                  <div className="lg:col-span-2">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="relative px-8 md:px-12">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {departments.map((department) => (
+                <CarouselItem key={department.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div className="h-full border border-gray-200 rounded-xl overflow-hidden bg-white p-6 transition-all hover:shadow-md flex flex-col">
+                    <h3 className="text-xl font-semibold text-nexus-600 mb-3">{department.title}</h3>
+                    <p className="text-gray-600 mb-4 text-sm flex-grow">{department.description}</p>
+                    
+                    <div className="space-y-3">
                       {department.services.map((service) => (
-                        <div 
-                          key={service.id} 
-                          className="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-100 shadow-sm"
-                        >
-                          <div className="h-6 w-6 rounded-full bg-nexus-100 flex items-center justify-center flex-shrink-0">
-                            <Check size={14} className="text-nexus-600" />
+                        <div key={service.id} className="flex items-start gap-2">
+                          <div className="mt-0.5 text-nexus-500 flex-shrink-0">
+                            <Check size={16} />
                           </div>
-                          <p className="text-gray-700">{service.title}</p>
+                          <span className="text-gray-700 text-sm">{service.title}</span>
                         </div>
                       ))}
                     </div>
                   </div>
-                </div>
-              </div>
-            </TabsContent>
-          ))}
-        </Tabs>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center gap-2 mt-8">
+              <CarouselPrevious className="static transform-none bg-white border-nexus-200 hover:bg-nexus-50 hover:border-nexus-300" />
+              <CarouselNext className="static transform-none bg-white border-nexus-200 hover:bg-nexus-50 hover:border-nexus-300" />
+            </div>
+          </Carousel>
+        </div>
       </div>
     </section>
   );

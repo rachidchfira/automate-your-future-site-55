@@ -39,7 +39,7 @@ const CaseStudiesSection = () => {
         challenge: "SecureBank needed to improve their fraud detection while reducing the high rate of false positives.",
         solution: "We developed a machine learning system that analyzes transaction patterns and customer behavior to accurately detect fraudulent activities.",
         results: ["85% reduction in false positives", "98.7% detection rate of actual fraud", "$2.3M saved in prevented fraud annually"],
-        image: "https://images.unsplash.com/photo-1621155346337-1d19cc3b3a8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        image: "https://images.unsplash.com/photo-1559526324-c1f275fbfa32?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" // New Finance image
       }
     ],
     healthcare: [
@@ -51,7 +51,7 @@ const CaseStudiesSection = () => {
         challenge: "MediCare Clinic faced inefficient scheduling leading to long wait times and unhappy patients.",
         solution: "We created an AI scheduling system that optimizes appointment slots based on procedure type, staff availability, and patient preferences.",
         results: ["40% reduction in patient wait times", "25% increase in appointment capacity", "93% patient satisfaction rate"],
-        image: "https://images.unsplash.com/photo-1631815588090-d1bcbe9a5b15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80"
+        image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" // Different Healthcare image
       }
     ]
   };
