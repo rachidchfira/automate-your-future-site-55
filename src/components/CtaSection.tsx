@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/main
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
@@ -28,7 +31,11 @@ const CtaSection = () => {
             <Button 
               size="lg" 
               variant="outline" 
+<<<<<<< HEAD
+              className="border-white text-nexus-600 bg-white hover:bg-gray-100 hover:text-nexus-700"
+=======
               className="border-white text-white hover:bg-white/10"
+>>>>>>> origin/main
               onClick={handleContactUs}
             >
               Contact Us
