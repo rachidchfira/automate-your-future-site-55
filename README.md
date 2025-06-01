@@ -7,7 +7,7 @@ A modern React application built with TypeScript, Vite, and Tailwind CSS, featur
 - **Modern Tech Stack**: React 18, TypeScript, Vite, Tailwind CSS
 - **UI Components**: Radix UI with shadcn/ui components
 - **Routing**: React Router DOM with client-side navigation
-- **Backend**: Supabase integration for database and authentication
+- **Form Handling**: Tally forms integration for contact and quote requests
 - **Responsive Design**: Mobile-first approach with modern UI/UX
 - **Performance Optimized**: Code splitting, lazy loading, and asset optimization
 
@@ -16,7 +16,7 @@ A modern React application built with TypeScript, Vite, and Tailwind CSS, featur
 - **Frontend**: React 18.3.1, TypeScript, Vite 6.3.5
 - **Styling**: Tailwind CSS, Radix UI, shadcn/ui
 - **Routing**: React Router DOM 6.26.2
-- **Backend**: Supabase (PostgreSQL, Authentication, Real-time)
+- **Forms**: Tally integration for contact and quote requests
 - **Build Tool**: Vite with SWC
 - **Deployment**: Optimized for Vercel and shared hosting
 
@@ -33,11 +33,11 @@ A modern React application built with TypeScript, Vite, and Tailwind CSS, featur
    npm install
    ```
 
-3. **Set up environment variables:**
+3. **Set up environment variables (optional):**
    ```bash
    cp .env.example .env
    ```
-   Update the `.env` file with your Supabase credentials.
+   Add any environment variables your application needs.
 
 4. **Start development server:**
    ```bash
@@ -128,8 +128,9 @@ nexussai/
 ### Environment Variables
 
 ```env
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+# Add any environment variables your application needs
+# Example:
+# VITE_API_URL=https://api.example.com
 ```
 
 ### Vite Configuration

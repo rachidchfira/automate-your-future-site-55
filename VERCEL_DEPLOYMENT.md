@@ -25,12 +25,9 @@ Your React project is **perfectly optimized for Vercel deployment** and will wor
    - Choose your `nexussai` repository
    - Click "Import"
 
-3. **Configure Environment Variables**
-   - In the deployment settings, add:
-   ```
-   VITE_SUPABASE_URL = your_supabase_project_url
-   VITE_SUPABASE_ANON_KEY = your_supabase_anon_key
-   ```
+3. **Configure Environment Variables (if needed)**
+   - Add any environment variables your application requires
+   - For this project, no environment variables are required by default
 
 4. **Deploy**
    - Click "Deploy"
@@ -144,17 +141,13 @@ git push origin main
 ### Option 1: Vercel Dashboard
 1. Go to your project in Vercel dashboard
 2. Settings → Environment Variables
-3. Add:
-   - `VITE_SUPABASE_URL`
-   - `VITE_SUPABASE_ANON_KEY`
+3. Add any environment variables your application needs
 
 ### Option 2: Vercel CLI
 ```bash
-vercel env add VITE_SUPABASE_URL
-# Enter your Supabase URL when prompted
-
-vercel env add VITE_SUPABASE_ANON_KEY
-# Enter your Supabase anon key when prompted
+# Add environment variables as needed
+vercel env add VARIABLE_NAME
+# Enter your variable value when prompted
 ```
 
 ## 🚀 Advanced Vercel Features
