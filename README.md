@@ -18,7 +18,7 @@ A modern React application built with TypeScript, Vite, and Tailwind CSS, featur
 - **Routing**: React Router DOM 6.26.2
 - **Backend**: Supabase (PostgreSQL, Authentication, Real-time)
 - **Build Tool**: Vite with SWC
-- **Deployment**: Optimized for shared hosting (Namecheap)
+- **Deployment**: Optimized for Vercel and shared hosting
 
 ## 📦 Installation
 
@@ -62,9 +62,28 @@ npm run lint
 
 ## 🌐 Deployment
 
-This project is optimized for deployment on shared hosting platforms like Namecheap.
+This project supports multiple deployment options and is optimized for modern hosting platforms.
 
-### Quick Deployment
+### 🚀 Vercel (Recommended)
+
+**Fastest and easiest deployment:**
+
+1. **GitHub Integration:**
+   - Visit [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Add environment variables
+   - Deploy automatically in 2 minutes!
+
+2. **CLI Deployment:**
+   ```bash
+   npm i -g vercel
+   vercel login
+   vercel
+   ```
+
+### 🏠 Shared Hosting (Namecheap)
+
+**Traditional hosting deployment:**
 
 1. **Build the project:**
    ```bash
@@ -74,17 +93,11 @@ This project is optimized for deployment on shared hosting platforms like Namech
 2. **Upload to hosting:**
    Upload all contents from the `dist/` folder to your hosting's `public_html/` directory.
 
-### Automated Deployment
+### 📚 Deployment Guides
 
-Use the included deployment script:
-```bash
-./deploy.sh
-```
-
-### Detailed Instructions
-
-See the comprehensive deployment guides:
-- [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) - Complete step-by-step instructions
+Choose your preferred deployment method:
+- [`VERCEL_DEPLOYMENT.md`](./VERCEL_DEPLOYMENT.md) - **Recommended**: Vercel deployment (2 minutes setup!)
+- [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) - Namecheap shared hosting instructions
 - [`DEPLOYMENT_SUMMARY.md`](./DEPLOYMENT_SUMMARY.md) - Quick overview and checklist
 
 ## 📁 Project Structure
