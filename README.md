@@ -1,73 +1,187 @@
-# Welcome to your Lovable project
+# NexusAI - Intelligent Automation Solutions
 
-## Project info
+A modern React application built with TypeScript, Vite, and Tailwind CSS, featuring AI automation solutions for businesses.
 
-**URL**: https://lovable.dev/projects/79397c21-ac09-4cf9-a235-73720f51e76d
+## 🚀 Features
 
-## How can I edit this code?
+- **Modern Tech Stack**: React 18, TypeScript, Vite, Tailwind CSS
+- **UI Components**: Radix UI with shadcn/ui components
+- **Routing**: React Router DOM with client-side navigation
+- **Backend**: Supabase integration for database and authentication
+- **Responsive Design**: Mobile-first approach with modern UI/UX
+- **Performance Optimized**: Code splitting, lazy loading, and asset optimization
 
-There are several ways of editing your application.
+## 🛠️ Tech Stack
 
-**Use Lovable**
+- **Frontend**: React 18.3.1, TypeScript, Vite 6.3.5
+- **Styling**: Tailwind CSS, Radix UI, shadcn/ui
+- **Routing**: React Router DOM 6.26.2
+- **Backend**: Supabase (PostgreSQL, Authentication, Real-time)
+- **Build Tool**: Vite with SWC
+- **Deployment**: Optimized for shared hosting (Namecheap)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/79397c21-ac09-4cf9-a235-73720f51e76d) and start prompting.
+## 📦 Installation
 
-Changes made via Lovable will be committed automatically to this repo.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/rachidchfira/nexussai.git
+   cd nexussai
+   ```
 
-**Use your preferred IDE**
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+3. **Set up environment variables:**
+   ```bash
+   cp .env.example .env
+   ```
+   Update the `.env` file with your Supabase credentials.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+4. **Start development server:**
+   ```bash
+   npm run dev
+   ```
 
-Follow these steps:
+## 🏗️ Build & Development
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+# Development server
 npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint code
+npm run lint
 ```
 
-**Edit a file directly in GitHub**
+## 🌐 Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project is optimized for deployment on shared hosting platforms like Namecheap.
 
-**Use GitHub Codespaces**
+### Quick Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. **Build the project:**
+   ```bash
+   npm run build
+   ```
 
-## What technologies are used for this project?
+2. **Upload to hosting:**
+   Upload all contents from the `dist/` folder to your hosting's `public_html/` directory.
 
-This project is built with:
+### Automated Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Use the included deployment script:
+```bash
+./deploy.sh
+```
 
-## How can I deploy this project?
+### Detailed Instructions
 
-Simply open [Lovable](https://lovable.dev/projects/79397c21-ac09-4cf9-a235-73720f51e76d) and click on Share -> Publish.
+See the comprehensive deployment guides:
+- [`DEPLOYMENT_GUIDE.md`](./DEPLOYMENT_GUIDE.md) - Complete step-by-step instructions
+- [`DEPLOYMENT_SUMMARY.md`](./DEPLOYMENT_SUMMARY.md) - Quick overview and checklist
 
-## Can I connect a custom domain to my Lovable project?
+## 📁 Project Structure
 
-Yes, you can!
+```
+nexussai/
+├── public/                 # Static assets
+│   ├── .htaccess          # Apache configuration
+│   ├── favicon.ico        # Website icon
+│   └── robots.txt         # SEO robots file
+├── src/
+│   ├── components/        # React components
+│   │   ├── ui/           # Reusable UI components
+│   │   └── ...           # Feature components
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utilities and configurations
+│   ├── pages/            # Page components
+│   └── assets/           # Images and static files
+├── dist/                 # Production build (generated)
+├── docs/                 # Documentation
+│   ├── DEPLOYMENT_GUIDE.md
+│   └── DEPLOYMENT_SUMMARY.md
+└── deploy.sh            # Deployment script
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🔧 Configuration
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Environment Variables
+
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+### Vite Configuration
+
+The project includes optimized Vite configuration for:
+- Shared hosting compatibility (relative paths)
+- Code splitting and performance optimization
+- Modern JavaScript bundling with SWC
+
+## 🎨 UI Components
+
+Built with modern UI components:
+- **Radix UI**: Accessible, unstyled components
+- **Tailwind CSS**: Utility-first CSS framework
+- **shadcn/ui**: Beautiful, reusable components
+- **Lucide React**: Modern icon library
+- **Framer Motion**: Smooth animations
+
+## 🔒 Security Features
+
+- XSS protection headers
+- Content type sniffing prevention
+- Secure file permissions
+- Environment variable protection
+- HTTPS-ready configuration
+
+## 📱 Pages & Features
+
+- **Homepage**: Hero section, services, testimonials, pricing
+- **Privacy Policy**: Complete privacy policy page
+- **Terms of Service**: Comprehensive terms page
+- **404 Page**: Custom not found page
+- **Responsive Navigation**: Mobile-friendly navigation
+- **Contact Forms**: Quote request functionality
+
+## 🚀 Performance
+
+- **Code Splitting**: Automatic vendor and UI chunks
+- **Asset Optimization**: Minified CSS and JavaScript
+- **Caching**: Long-term caching for static assets
+- **Compression**: Gzip compression enabled
+- **SEO**: Meta tags and structured HTML
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🆘 Support
+
+- **Documentation**: Check the deployment guides in the `docs/` folder
+- **Issues**: Report bugs and request features via GitHub Issues
+- **Deployment**: Follow the step-by-step guides for hosting setup
+
+## 🌟 Live Demo
+
+Visit the live website: [Your Domain Here](https://your-domain.com)
+
+---
+
+**Built with ❤️ using React, TypeScript, and modern web technologies.**
