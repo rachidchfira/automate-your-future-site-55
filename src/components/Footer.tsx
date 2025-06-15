@@ -1,4 +1,3 @@
-
 import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
@@ -62,7 +61,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-nexus-400" />
-                <a href="tel:+84703027485" className="text-gray-300 hover:text-white transition-colors">+1-555-123-4567</a>
+                <a href="tel:+84703027485" className="text-gray-300 hover:text-white transition-colors">+84703027485</a>
               </li>
             </ul>
             <div className="mt-6">
@@ -86,7 +85,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400">© {currentYear} NexusAI. All rights reserved.</p>
+            <p className="text-gray-400">© {currentYear} NixusAi. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>

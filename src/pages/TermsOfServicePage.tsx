@@ -14,7 +14,7 @@ const TermsOfServicePage = () => {
           <h2>1. Agreement to Terms</h2>
           <p>
             These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity
-            ("you") and NexusAI ("we," "us," or "our"), concerning your access to and use of the
+            ("you") and NixusAi ("we," "us," or "our"), concerning your access to and use of the
             [Your Website URL] website as well as any other media form, media channel, mobile website or mobile application
             related, linked, or otherwise connected thereto (collectively, the "Site").
           </p>
@@ -76,7 +76,7 @@ const TermsOfServicePage = () => {
           <h2>7. Governing Law</h2>
           <p>
             [Placeholder: Specify the jurisdiction whose laws will govern the terms.]
-            These Terms shall be governed by and defined following the laws of [Your Country/State]. NexusAI and yourself
+            These Terms shall be governed by and defined following the laws of [Your Country/State]. NixusAi and yourself
             irrevocably consent that the courts of [Your Country/State] shall have exclusive jurisdiction to resolve any dispute
             which may arise in connection with these terms.
           </p>
@@ -102,7 +102,7 @@ const TermsOfServicePage = () => {
             please contact us at:
           </p>
           <p>
-            NexusAI<br />
+            NixusAi<br />
             [Your Company Address]<br />
             info@nexusai.com
           </p>

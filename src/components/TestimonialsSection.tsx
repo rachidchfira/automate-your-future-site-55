@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 
 interface Testimonial {
@@ -14,7 +13,7 @@ const TestimonialsSection = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      quote: "NexusAI transformed our customer service operations. The AI chatbot they implemented handles 80% of inquiries automatically, allowing our team to focus on complex cases. Our customer satisfaction ratings have never been higher.",
+      quote: "NixusAi transformed our customer service operations. The AI chatbot they implemented handles 80% of inquiries automatically, allowing our team to focus on complex cases. Our customer satisfaction ratings have never been higher.",
       author: "Sarah Johnson",
       position: "Customer Service Director",
       company: "TechStream Inc.",
@@ -22,7 +21,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      quote: "The workflow automation solution provided by NexusAI has been a game-changer. We've reduced processing time by 65% and eliminated most human errors. The ROI has been incredible.",
+      quote: "The workflow automation solution provided by NixusAi has been a game-changer. We've reduced processing time by 65% and eliminated most human errors. The ROI has been incredible.",
       author: "Michael Chang",
       position: "Operations Manager",
       company: "GlobalTrade Ltd",
@@ -30,7 +29,7 @@ const TestimonialsSection = () => {
     },
     {
       id: 3,
-      quote: "Working with NexusAI was seamless from start to finish. Their team took the time to understand our unique challenges and designed a custom solution that perfectly addressed our needs. I couldn't be happier with the results.",
+      quote: "Working with NixusAi was seamless from start to finish. Their team took the time to understand our unique challenges and designed a custom solution that perfectly addressed our needs. I couldn't be happier with the results.",
       author: "Emily Rodriguez",
       position: "Marketing Director",
       company: "BrandForward",

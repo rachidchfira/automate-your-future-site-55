@@ -13,8 +13,8 @@ const PrivacyPolicyPage = () => {
 
           <h2>1. Introduction</h2>
           <p>
-            Welcome to NexusAI ("we", "our", or "us"). We are committed to protecting your personal information
-            and your right to privacy. If you have any questions or concerns about this privacy notice, or our practices
+            Welcome to NixusAi ("we", "our", or "us"). We are committed to protecting your personal information
+            and privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. If you have any questions
             with regards to your personal information, please contact us at info@nexusai.com.
           </p>
           <p>
