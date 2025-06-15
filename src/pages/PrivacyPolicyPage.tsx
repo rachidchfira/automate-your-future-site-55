@@ -15,7 +15,7 @@ const PrivacyPolicyPage = () => {
           <p>
             Welcome to NixusAi ("we", "our", or "us"). We are committed to protecting your personal information
             and privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. If you have any questions
-            with regards to your personal information, please contact us at info@nexusai.com.
+            with regards to your personal information, please contact us at info@nixusai.com.
           </p>
           <p>
             This privacy notice describes how we might use your information if you:
@@ -95,7 +95,7 @@ const PrivacyPolicyPage = () => {
 
           <h2>10. How Can You Contact Us About This Notice?</h2>
           <p>
-            If you have questions or comments about this notice, you may email us at info@nexusai.com or by post to:
+            If you have questions or comments about this notice, you may email us at info@nixusai.com or by post to:
           </p>
           <p>
             [Placeholder: Your Company Name, Address, City, Postal Code, Country]

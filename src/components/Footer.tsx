@@ -57,7 +57,7 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 text-nexus-400" />
-                <a href="mailto:info@nexusai.com" className="text-gray-300 hover:text-white transition-colors">info@nexusai.com</a>
+                <a href="mailto:info@nixusai.com" className="text-gray-300 hover:text-white transition-colors">info@nixusai.com</a>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-nexus-400" />

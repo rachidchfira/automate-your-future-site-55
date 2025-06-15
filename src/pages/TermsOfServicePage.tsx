@@ -104,7 +104,7 @@ const TermsOfServicePage = () => {
           <p>
             NixusAi<br />
             [Your Company Address]<br />
-            info@nexusai.com
+            info@nixusai.com
           </p>
           <p>
             <strong>Important:</strong> This is a template and should be reviewed and customized by a legal professional to ensure
