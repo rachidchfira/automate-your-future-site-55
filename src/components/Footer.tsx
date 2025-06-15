@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <a href="/" className="text-2xl font-bold mb-4 block">
-              Nexus<span className="text-nexus-400">AI</span>
+              Nixus<span className="text-nexus-400">AI</span>
             </a>
             <p className="text-gray-300 mb-6">
               Powering business growth through intelligent automation solutions tailored to your specific needs.
