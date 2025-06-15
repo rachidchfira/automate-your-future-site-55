@@ -1,4 +1,5 @@
 # NexusAI - Intelligent Automation Solutions
+<!-- Updated to trigger Vercel deployment -->
 
 A modern React application built with TypeScript, Vite, and Tailwind CSS, featuring AI automation solutions for businesses.
 

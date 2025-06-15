@@ -14,7 +14,7 @@ fi
 # Set up remote if not exists
 if ! git remote get-url origin &> /dev/null; then
     echo "🔗 Adding GitHub remote repository..."
-    git remote add origin https://github.com/rachidchfira/nexussai.git
+    git remote add origin https://github.com/rachidchfira/automate-your-future-site-55.git
 else
     echo "✅ GitHub remote already configured"
 fi
@@ -81,7 +81,7 @@ git push -u origin main
 if [ $? -eq 0 ]; then
     echo "✅ Successfully pushed to GitHub!"
     echo ""
-    echo "🌐 Repository: https://github.com/rachidchfira/nexussai"
+    echo "🌐 Repository: https://github.com/rachidchfira/automate-your-future-site-55"
     echo "📁 All files have been uploaded to GitHub"
     echo ""
     echo "📋 Next Steps:"
