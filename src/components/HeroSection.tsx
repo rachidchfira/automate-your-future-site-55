@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
@@ -43,9 +42,9 @@ const HeroSection = () => {
               </div>
             </div>
           </div>
-          <div className="lg:w-1/2 relative flex justify-center items-center h-[500px] lg:h-auto">
-            {/* Adjusted container for Spline Scene */}
-            <div className="w-full max-w-2xl h-full"> 
+          <div className="lg:w-1/2 relative flex justify-center items-center h-[400px] sm:h-[450px] md:h-[500px] lg:h-auto">
+            {/* Optimized container for mobile Spline Scene */}
+            <div className="w-full max-w-xl sm:max-w-2xl h-full"> 
               <SplineSceneBasic />
             </div>
           </div>
