@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
-import logoSrc from '@/assets/logo.png'; // Import the logo
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { handleGetStarted, handleContactUs } = useActions(); // Added handleContactUs
+  const { handleGetStarted, handleContactUs } = useActions();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -15,7 +14,7 @@ const Navbar = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      setIsMenuOpen(false); // Close mobile menu if open
+      setIsMenuOpen(false);
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
@@ -26,7 +25,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <a href="/" aria-label="NixusAi Home">
-              <img src={logoSrc} alt="NixusAi Logo" className="h-10 w-auto" /> {/* Adjusted height to h-10 */}
+              <img 
+                src="/logo.png" 
+                alt="NixusAi Logo" 
+                className="h-10 w-auto" 
+              />
             </a>
           </div>
           
