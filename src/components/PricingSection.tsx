@@ -167,7 +167,7 @@ const PricingSection = () => {
         '1,500 automations/month',
         'Single user'
       ],
-      cta: 'Get Quote',
+      cta: 'Get In Touch',
       action: () => handleSelectPlan('basic')
     },
     {
@@ -185,7 +185,7 @@ const PricingSection = () => {
         'Up to 8 users',
         'Custom integrations'
       ],
-      cta: 'Get Quote',
+      cta: 'Get In Touch',
       action: () => handleSelectPlan('professional'),
       popular: true
     },
@@ -204,7 +204,7 @@ const PricingSection = () => {
         'Up to 20 users',
         'Custom AI training'
       ],
-      cta: 'Get Quote',
+      cta: 'Get In Touch',
       action: () => handleSelectPlan('business')
     }
   ];
