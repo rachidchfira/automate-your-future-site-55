@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Check, CircleDollarSign, Plus, Users, Layers, Package } from 'lucide-react';
+import { Check, CircleDollarSign, Plus, Users, Layers, Package, Clock, Zap, Target } from 'lucide-react';
 import { useActions } from '@/hooks/useActions';
 import { useToast } from '@/hooks/use-toast';
 import { Badge } from '@/components/ui/badge';
@@ -152,87 +152,109 @@ const PricingSection = () => {
     });
   };
 
-  const pricingPlans = [
+  const servicePackages = [
     {
-      id: 'basic',
-      name: 'Basic',
-      description: 'For small teams getting started',
-      monthlyPrice: 499,
-      annualPrice: 399,
+      id: 'starter',
+      name: 'Starter Package',
+      description: 'Perfect for small businesses starting their automation journey',
+      price: 2500,
+      timeline: '2 weeks',
       features: [
-        '1 department',
-        '3 AI workflows',
-        'Basic analytics',
-        'Email support',
-        '1,000 automations/month',
-        'Single user'
+        '1 department workflow',
+        '3 AI automations',
+        'Basic integrations',
+        'Process analysis & mapping',
+        'User training session',
+        '30 days support'
+      ],
+      deliverables: [
+        'Custom workflow documentation',
+        'Integration setup',
+        'Training materials',
+        '30-day support plan'
       ],
       cta: 'Get In Touch',
-      action: () => handleSelectPlan('basic')
+      action: () => handleSelectPlan('starter'),
+      icon: <Zap size={24} />
     },
     {
-      id: 'professional',
-      name: 'Professional',
-      description: 'For growing teams',
-      monthlyPrice: 4199,
-      annualPrice: 4099,
+      id: 'growth',
+      name: 'Growth Package',
+      description: 'Ideal for growing businesses with multiple departments',
+      price: 8000,
+      timeline: '4 weeks',
       features: [
-        '3 departments',
-        '12 AI workflows',
-        'Advanced analytics',
-        'Priority support',
-        '7,500 automations/month',
-        'Up to 8 users',
-        'Custom integrations'
+        '3 department workflows',
+        '8 AI automations',
+        'Advanced integrations',
+        'Custom analytics dashboard',
+        'ROI tracking setup',
+        '90 days support'
+      ],
+      deliverables: [
+        'Multi-department workflow system',
+        'Custom analytics dashboard',
+        'Integration documentation',
+        'ROI measurement tools',
+        '90-day support plan'
       ],
       cta: 'Get In Touch',
-      action: () => handleSelectPlan('professional'),
-      popular: true
+      action: () => handleSelectPlan('growth'),
+      popular: true,
+      icon: <Target size={24} />
     },
     {
-      id: 'business',
-      name: 'Business',
-      description: 'For established businesses',
-      monthlyPrice:  12999,
-      annualPrice: 11999,
+      id: 'transformation',
+      name: 'Transformation Package',
+      description: 'Complete business automation for established companies',
+      price: 25000,
+      timeline: '8 weeks',
       features: [
-        'All departments',
-        '25 AI workflows',
-        'Enterprise analytics',
-        'Dedicated manager',
-        '20,000 automations/month',
-        'Up to 20 users',
-        'Custom AI training'
+        'Complete business automation',
+        '15+ AI workflows',
+        'Custom AI model training',
+        'Dedicated project manager',
+        'Enterprise integrations',
+        '6 months support'
+      ],
+      deliverables: [
+        'End-to-end automation system',
+        'Custom AI models',
+        'Enterprise integration suite',
+        'Comprehensive documentation',
+        'Dedicated support team',
+        '6-month support plan'
       ],
       cta: 'Get In Touch',
-      action: () => handleSelectPlan('business')
+      action: () => handleSelectPlan('transformation'),
+      icon: <Package size={24} />
     }
   ];
 
-  const addOns = [
+  const additionalServices = [
     {
       name: 'Additional Department',
-      price: 250,
-      description: 'Add access to one more department',
+      price: 1500,
+      description: 'Add automation for one more department',
       icon: <Layers size={20} />
     },
     {
-      name: 'Additional 5,000 Automations',
-      price: 150,
-      description: 'Extend your monthly automation limit',
+      name: 'Custom AI Training',
+      price: 3000,
+      description: 'Train AI models on your specific data',
       icon: <CircleDollarSign size={20} />
     },
     {
-      name: 'Additional 5 Users',
-      price: 100,
-      description: 'Add more team members to your plan',
+      name: 'Extended Support',
+      price: 500,
+      description: 'Additional 3 months of support',
       icon: <Users size={20} />
     },
     {
-      name: 'Custom AI Training Session',
-      price: 1500,
-      description: 'One-time training session for your team',
-      icon: <Plus size={20} />
+      name: 'Priority Implementation',
+      price: 1000,
+      description: 'Expedited delivery timeline',
+      icon: <Clock size={20} />
     }
   ];
 
@@ -240,34 +262,17 @@ const PricingSection = () => {
     <section id="pricing" className="py-16 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Simple, Transparent Pricing</h2>
-          <p className="text-gray-600 text-lg">Choose the plan that's right for your business</p>
-
-          <div className="flex items-center justify-center mt-8 mb-8">
-            <div className="bg-white p-1 rounded-full border border-gray-200 flex shadow-sm">
-              <button
-                onClick={() => setIsAnnual(false)}
-                className={`px-4 py-2 rounded-full transition-colors ${!isAnnual ? 'bg-nexus-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
-              >
-                Monthly
-              </button>
-              <button
-                onClick={() => setIsAnnual(true)}
-                className={`px-4 py-2 rounded-full transition-colors ${isAnnual ? 'bg-nexus-600 text-white' : 'text-gray-600 hover:bg-gray-100'}`}
-              >
-                Annual (Save 10%)
-              </button>
-            </div>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">Custom Workflow Development Packages</h2>
+          <p className="text-gray-600 text-lg">Choose the package that fits your automation needs and budget</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {pricingPlans.map((plan) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {servicePackages.map((package_) => (
             <Card
-              key={plan.id}
-              className={`relative transition-all hover:-translate-y-1 hover:shadow-lg ${plan.popular ? 'border-nexus-500 shadow-lg' : 'border-gray-200'}`}
+              key={package_.id}
+              className={`relative transition-all hover:-translate-y-1 hover:shadow-lg ${package_.popular ? 'border-nexus-500 shadow-lg' : 'border-gray-200'}`}
             >
-              {plan.popular && (
+              {package_.popular && (
                 <div className="absolute top-0 right-0 left-0 -mt-4 flex justify-center">
                   <div className="bg-nexus-600 text-white px-4 py-1 rounded-full text-sm font-medium shadow-md">
                     Most Popular
@@ -275,95 +280,82 @@ const PricingSection = () => {
                 </div>
               )}
 
-              <CardHeader className={`pb-4 ${plan.popular ? 'pt-8' : 'pt-6'}`}>
-                <CardTitle className="text-2xl font-bold">{plan.name}</CardTitle>
-                <CardDescription className="text-sm">{plan.description}</CardDescription>
+              <CardHeader className={`pb-4 ${package_.popular ? 'pt-8' : 'pt-6'}`}>
+                <div className="flex items-center gap-3 mb-2">
+                  {package_.icon}
+                  <CardTitle className="text-2xl font-bold">{package_.name}</CardTitle>
+                </div>
+                <CardDescription className="text-sm">{package_.description}</CardDescription>
               </CardHeader>
 
               <CardContent className="pb-4">
-                <div className="mb-4 flex items-end">
-                  <span className="text-4xl font-bold">
-                    {`$${isAnnual ? plan.annualPrice : plan.monthlyPrice}`}
-                  </span>
-                  <span className="text-gray-600 ml-1">/mo</span>
+                <div className="mb-4">
+                  <div className="flex items-end gap-2">
+                    <span className="text-4xl font-bold">${package_.price.toLocaleString()}</span>
+                    <span className="text-gray-600">one-time</span>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-1">Timeline: {package_.timeline}</p>
                 </div>
 
-                {plan.id === 'basic' && (
-                  <div className="mb-4 p-3 bg-nexus-50 rounded-md">
-                    <p className="text-sm font-medium mb-2 text-nexus-800">
-                      Select your department:
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {departmentData.map((dept) => (
-                        <div
-                          key={dept.id}
-                          onClick={() => handleBasicDepartmentChange(dept.id)}
-                          className={`px-3 py-1 text-xs rounded-full cursor-pointer transition-colors ${
-                            basicDepartment === dept.id
-                              ? 'bg-nexus-600 text-white shadow-sm'
-                              : 'bg-white border border-gray-200 text-gray-700 hover:border-nexus-300'
-                          }`}
-                        >
-                          {dept.name}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {plan.id === 'professional' && (
-                  <div className="mb-4 p-3 bg-nexus-50 rounded-md">
-                    <p className="text-sm font-medium mb-2 text-nexus-800">
-                      Select up to 3:
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {departmentData.map((dept) => (
-                        <div
-                          key={dept.id}
-                          onClick={() => handleProfessionalDepartmentToggle(dept.id)}
-                          className={`px-3 py-1 text-xs rounded-full cursor-pointer transition-colors ${
-                            professionalDepartments.includes(dept.id)
-                              ? 'bg-nexus-600 text-white shadow-sm'
-                              : 'bg-white border border-gray-200 text-gray-700 hover:border-nexus-300'
-                          }`}
-                        >
-                          {dept.name}
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-xs text-gray-500 mt-2">
-                      {professionalDepartments.length}/3 departments selected
-                    </p>
-                  </div>
-                )}
-
-                <ul className="space-y-2 mb-6">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-center gap-2">
-                      <Check size={16} className="text-nexus-600 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="mb-6">
+                  <h4 className="font-semibold mb-3 text-nexus-800">What's Included:</h4>
+                  <ul className="space-y-2 mb-4">
+                    {package_.features.map((feature, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <Check size={16} className="text-nexus-600 flex-shrink-0" />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <h4 className="font-semibold mb-3 text-nexus-800">Deliverables:</h4>
+                  <ul className="space-y-2">
+                    {package_.deliverables.map((deliverable, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <Check size={16} className="text-nexus-600 flex-shrink-0" />
+                        <span className="text-sm">{deliverable}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </CardContent>
 
               <CardFooter>
                 <Button
-                  className={`w-full ${plan.popular ? "bg-nexus-600 hover:bg-nexus-700 shadow-md" : ""}`}
-                  variant={plan.popular ? "default" : "outline"}
-                  onClick={plan.action}
+                  className={`w-full ${package_.popular ? "bg-nexus-600 hover:bg-nexus-700 shadow-md" : ""}`}
+                  variant={package_.popular ? "default" : "outline"}
+                  onClick={package_.action}
                 >
-                  {plan.cta}
+                  {package_.cta}
                 </Button>
               </CardFooter>
             </Card>
           ))}
         </div>
 
-        {/* Available Add-ons section removed */}
+        {/* Additional Services */}
+        <div className="mt-12">
+          <div className="text-center mb-8">
+            <h3 className="text-2xl font-bold mb-2">Additional Services</h3>
+            <p className="text-gray-600">Enhance your automation with these add-on services</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            {additionalServices.map((service, index) => (
+              <Card key={index} className="p-4 hover:shadow-md transition-shadow">
+                <div className="flex items-center gap-3 mb-3">
+                  {service.icon}
+                  <h4 className="font-semibold">{service.name}</h4>
+                </div>
+                <p className="text-sm text-gray-600 mb-3">{service.description}</p>
+                <div className="text-2xl font-bold text-nexus-600">${service.price}</div>
+              </Card>
+            ))}
+          </div>
+        </div>
 
         <div className="text-center mt-12 pt-6 border-t border-gray-100">
-          <p className="text-gray-600 mb-3">Need a more customized solution for your business?</p>
+          <p className="text-gray-600 mb-3">Need a custom solution that doesn't fit these packages?</p>
           <Button
             variant="outline"
             className="border-nexus-300 text-nexus-600 hover:bg-nexus-50"

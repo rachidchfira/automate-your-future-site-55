@@ -14,11 +14,11 @@ const HeroSection = () => {
           <div className="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
             <div className="text-center lg:text-left">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                Power Your Business with{' '}
-                <span className="gradient-text">Intelligent Automation</span>
+                Custom AI Workflows{' '}
+                <span className="gradient-text">Built for Your Business</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-                Automate repetitive tasks, streamline workflows, and unlock growth with our cutting-edge AI solutions tailored for your business needs.
+                We design and build custom AI automation workflows that streamline your business processes, reduce costs, and drive growth. No off-the-shelf solutions - just tailored automation that fits your unique needs.
               </p>
               <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
                 <Button 
