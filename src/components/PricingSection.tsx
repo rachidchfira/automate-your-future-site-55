@@ -158,7 +158,7 @@ const PricingSection = () => {
       name: 'Starter Package',
       description: 'Perfect for small businesses starting their automation journey',
       price: 2500,
-      timeline: '2 weeks',
+      timeline: '3-4weeks',
       features: [
         '1 department workflow',
         '3 AI automations',
@@ -182,7 +182,7 @@ const PricingSection = () => {
       name: 'Growth Package',
       description: 'Ideal for growing businesses with multiple departments',
       price: 8000,
-      timeline: '4 weeks',
+      timeline: '4-6 weeks',
       features: [
         '3 department workflows',
         '8 AI automations',
