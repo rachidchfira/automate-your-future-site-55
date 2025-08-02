@@ -157,14 +157,14 @@ const PricingSection = () => {
       id: 'basic',
       name: 'Basic',
       description: 'For small teams getting started',
-      monthlyPrice: 799,
-      annualPrice: 699,
+      monthlyPrice: 499,
+      annualPrice: 399,
       features: [
         '1 department',
         '3 AI workflows',
         'Basic analytics',
         'Email support',
-        '1,500 automations/month',
+        '1,000 automations/month',
         'Single user'
       ],
       cta: 'Get In Touch',
